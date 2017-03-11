@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 
-const port = 8001;
+const port = process.env.PORT || 8001;
 require('./app/routes')(app, xml2js, http, concat);
 app.listen(port, () => {
     console.log('We are live on ' + port);

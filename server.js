@@ -9,7 +9,7 @@ const app = express();
 
 
 const port = 8001;
-//require('./app/routes')(app, xml2js);
+require('./app/routes')(app, xml2js, http, concat);
 app.listen(port, () => {
     console.log('We are live on ' + port);
 });
@@ -22,7 +22,7 @@ app.get('/', (req, resp) => {
 
 })
 
-app.get('/cure', (req, resp) => {
+app.get('/cur', (req, resp) => {
     var parser = new xml2js.Parser();
 
     parser.on('error', function(err) { console.log('Parser error', err); });

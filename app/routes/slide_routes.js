@@ -1,4 +1,4 @@
-module.exports = function(app, xmljs) {
+module.exports = function(app, xml2js, http, concat) {
     app.use(function(req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -16,8 +16,6 @@ module.exports = function(app, xmljs) {
 
             res.pipe(concat(function(buffer) {
                 var str = buffer.toString();
-
-
                 // console.log(str)
                 parser.parseString(str, function(err, result) {
                     resp.send(result['gesmes:Envelope'].Cube[0].Cube);

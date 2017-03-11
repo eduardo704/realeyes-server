@@ -1,18 +1,22 @@
 // server.js
-const express = require('express');
-const MongoClient = require('mongodb').MongoClient;
-const bodyParser = require('body-parser');
-const app = express();
 const xml2js = require('xml2js');
 var http = require('http');
 var fs = require('fs');
 var concat = require('concat-stream');
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
 
-const port = 8000;
-require('./app/routes')(app, xml2js);
+
+const port = 8001;
+//require('./app/routes')(app, xml2js);
 app.listen(port, () => {
     console.log('We are live on ' + port);
 });
+app.get('/', (req, resp) => {
+
+})
+
 
 app.get('/cure', (req, resp) => {
     var parser = new xml2js.Parser();
